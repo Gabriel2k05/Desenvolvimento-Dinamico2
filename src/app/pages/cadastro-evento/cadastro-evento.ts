@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Evento } from '../models/evento';
+import { Evento } from '../../models/evento';
 import {
   validarData,
   validarEmailResponsavel,
@@ -8,7 +8,7 @@ import {
   validarTitulo,
   validarVagas,
   validarVagasPorLocal,
-} from '../models/evento.validacao';
+} from '../../models/evento.validacao';
 
 type CampoEvento = 'titulo' | 'data' | 'local' | 'emailResponsavel' | 'vagas';
 

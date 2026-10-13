@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Cadastro } from './cadastro-evento/cadastro';
-import { CadastroEvento } from './cadastro-evento/cadastro-evento';
+import { CadastroEvento } from './pages/cadastro-evento/cadastro-evento';
 
 
 export const routes: Routes = [
