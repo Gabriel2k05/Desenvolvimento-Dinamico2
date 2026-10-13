@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Pessoa } from '../pessoa/pessoa.model';
 import { validarEmail, validarNome, validarTelefone } from '../validacao';
+import { Pessoa, Tipo } from '../pessoa/pessoa.model';
 
 function fichaEmBranco(): Omit<Pessoa, 'id'> {
   return { nome: '', email: '', telefone: '', tipo: 'aluno', curso: '' };
@@ -9,7 +9,7 @@ function fichaEmBranco(): Omit<Pessoa, 'id'> {
 
 @Component({
   selector: 'app-cadastro',
-  imports: [FormsModule],            
+  imports: [FormsModule],
   templateUrl: './cadastro.html',
   styleUrl: './cadastro.css',
 })
@@ -21,12 +21,13 @@ export class Cadastro {
 
   private proximoId = 1;
 
-  
-  get erros() {
+  get erros(): Record<keyof Omit<Pessoa, 'id'>, string | null> {
     return {
-      nome:     validarNome(this.pessoa.nome),
-      email:    validarEmail(this.pessoa.email),
-      telefone: validarTelefone(this.pessoa.telefone, this.pessoa.tipo),
+      nome: validarNome(this.pessoa.nome),
+      email: validarEmail(this.pessoa.email),
+      telefone: validarTelefone(this.pessoa.telefone, this.pessoa.tipo as Tipo),
+      tipo: null,
+      curso: null,
     };
   }
 
@@ -42,6 +43,6 @@ export class Cadastro {
     if (this.temErro) return;
 
     this.pessoas.push({ id: this.proximoId++, ...this.pessoa });
-    this.pessoa = fichaEmBranco();   
+    this.pessoa = fichaEmBranco();
   }
 }

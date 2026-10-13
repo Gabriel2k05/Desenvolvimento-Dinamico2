@@ -1,3 +1,19 @@
-<h2>Agenda Unijorge</h2><br>
+<header class="topo">
+	<div>
+		<h2>Agenda Unijorge</h2>
+		<p>Cadastro de pessoas</p>
+	</div>
 
-<router-outlet />
+	<nav class="menu" aria-label="Menu principal">
+		<a routerLink="/cadastro" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">
+			Cadastro de pessoas
+		</a>
+		<a routerLink="/eventos/novo" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">
+			Novo evento
+		</a>
+	</nav>
+</header>
+
+<main class="conteudo">
+	<router-outlet />
+</main>

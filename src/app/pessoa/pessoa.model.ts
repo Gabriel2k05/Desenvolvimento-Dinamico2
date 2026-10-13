@@ -1,10 +1,10 @@
-export type Tipo = 'aluno' | 'professor'; 
+export type Tipo = 'aluno' | 'professor';
 
 export interface Pessoa {
-    id: number;
-    nome: string;
-    email: string;
-    telefone: string;
-    tipo: Tipo;
-    curso: string;
+  id: number;
+  nome: string;
+  email: string;
+  telefone: string;
+  tipo: Tipo;
+  curso: string;
 }
